@@ -1,0 +1,395 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"sel",
+				"selectedTile"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Applications/Sublime Text.app/Contents/MacOS/changelog.txt",
+			"settings":
+			{
+				"buffer_size": 5442,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"\n\"http://www.w3.org/TR/html4/loose.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n    <head>\n        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n        <title>Redshift dev journal</title>\n        <link rel=\"stylesheet\" href=\"../src/css/bootstrap.css\">\n        <link rel=\"stylesheet\" href=\"../src/css/docs.css\">\n     \n    </head>\n    <body>\n        <div>\n\n        </div>\n        <h1>starting out</h1>\n        <p>One motivation for this project was as a learning exercise in javascript, like many I have used it without taking the \n            trouble to <em>learn</em> it in detail.   My background is mainly in class based\n            languages with mature IDEs where many of the structural decisions are well established. Javascript web development is still\n            changing rapidly so to build on this starting point I will need to learn both the language features and  the available \n            frameworks to structure a project of this scale.</p>\n            \n           <h1>redshift</h1>\n           <p>Redshift is a slide puzzle. It is of small enough scope to get up to speed\n             with a new language but will also cover core components. There is some front-end\n            screen flow, input handling, game state, cross platform support (mobile and desktop compatiable) and an optional server-side implementation.</p>\n            \n           <h1>Aptana Studio</h1>\n           <p>For a development environment I selected <a href=\"http://www.aptana.com/products/studio3\">Aptana Studio 3</a>. This creates \n           a local web server so you can for the most part work locally and only need to publish to a live \n           web server during development for specific test cases. </p>\n  \n  \n           <h1>AWS EC2</h1>\n           <p>Where to host the application? I created an  <a href=\"http://aws.amazon.com/free/\">free tier Amazon Web Services</a> account. This gives you an\n           elastic compute instance of your choice, I selected Linux AMI server. I use <a href=\"https://itunes.apple.com/us/app/vssh/id583272886?mt=12\">vSSH</a> to \n           access it from the command line. I started by installing <a href=\"https://npmjs.org/\">node package manager</a> on it and then used that \n           to install an <a href=\"http://wiki.nginx.org/Main\">NGINX</a> web server instance. With this up and running I set up a command line batch\n           to publish my app files from within the Aptana terminal view.</p>\n           \n           <h1>javascript</h1>\n           <p>My initial source for learning the langauge features was <a href=\"http://effectivejs.com/\">http://effectivejs.com/</a>.\n           To get an idea of the javascript frameworks and associated technolgies I used <a href=\"http://javascriptjabber.com/\">http://javascriptjabber.com/</a>.\n           </p>\n           \n           <h1>IIFE</h1>\n           <p>From EffectiveJS I adopted the <a href=\"http://en.wikipedia.org/wiki/Immediately-invoked_function_expression\">IIFE</a> for \n           scoping modules and to avoid polluting the global namespace. </p>\n           \n           <h1>requirejs</h1>\n           <p> Once I had some core functionality in place I wanted to find a solid way of modularlizing, the requirejs \n           <a href=\"http://requirejs.org/\">http://requirejs.org/</a> framework does this along with <a href=\"https://github.com/amdjs/amdjs-api/wiki/AMD\">AMD</a>.\n           By hunting around I was able to establish how to integrate this framework with \n           the implementation I already had and was still able to keep the IIFE wrapped modules I had, although requirejs may already \n           be providing that scoping. It became clear now how a javascript project could pratically be extended to a larger scale \n           and using the object orientation with which I'm familar.</p>      \n        \n           <h1>JQuery</h1>\n           <p>This was the only javscript framework I had previously been aware of and had used. I chose to intentionally avoid it this time\n           so that I could get a better understanding of the lower level core javsscript API which JQuery wraps and abstracts.</p>\n           \n           <h1>lint</h1>\n           <p>Effective JS mentoned <a href=\"http://www.jslint.com/\">http://www.jslint.com/</a> for code analysis. I started by pasting code\n           snippits in to the site which provided a tremendous level of detail in it warnings. \n           It is a non scalable working pratice to use the website manually, looking for a command line alternative  \n           I installed <a href=\"http://www.jshint.com\">http://www.jshint.com</a> and set up a batch for it in Aptana's terminal view. This\n           also can be configured to ignore specific warnings.</p>\n           \n           <h1>collision handling</h1>\n           <p>The collision detection for r edshift is straight forward box alligned tiles. It would have been quick to implement this from basics\n           but it seemed like a good candidate for using a shared module solution. For this I selected <a href=\"https://github.com/jriecken/sat-js\">https://github.com/jriecken/sat-js</a>.\n           </p>\n                    \n           <h1>rendering</h1>\n           <p>Nothing too complicated here, since the geometry is all rectangular alligned I could have created it using HTML DOM components,\n           however that would be restrictive if I later required primitives which could not be modeled easily using the DOM. So I \n           selected the HTML canvas to represent the board and tiles. The canvas is straight forward to use from basics but again I wanted \n           to see if there was already a shared technology solution which could jump-start me here and I selected <a href=\"http://fabricjs.com/\">http://fabricjs.com/</a>.\n           Some examples on this site show that it can combine canvas support with mouse input handling and some collision detection. At this stage I \n           decided I could switch to fabricjs to provide all these components in one module. I tried to mock up a test case doing this but found \n           that I could not get the control of the collision detection without first fully understanding the substantial fabricjs implementation. So to get the level\n           of control I required I decided to switch back to sat-js for collision and use input event handling and the HTML canvas from basics.\n           </p>\n           \n           <h1>input handling</h1>\n           <p>The intent here was to provide both mouse input handing for desktop browsers and touch input for mobile. The implementation for this\n           was a first opportunity to use javascript <a href=\"http://javascript.crockford.com/prototypal.html\">prototypal inheritence</a>. \n           To test touch input handling I had setup a batch publish process to the NGINX server and had my iPad pointed out the site. \n           This provided a quick means of iterating development of components like this which needed to be tested in-situ.</p>\n           \n           <h1>mobile</h1>\n           <p>HTML includes some <a href =\"http://developer.apple.com/library/safari/documentation/appleapplications/reference/SafariHTMLRef/Articles/MetaTags.html\">metatags</a> \n               for helping to make web apps appear more like native apps. The browser can be made full screen \n               and guestures can be disabled. The app can then be book marked to make it appear as any other nativly installed app.</p>\n           \n           \n           <h1>dirty rectangle</h1>\n           <p>The canvas render size was initially fixed, I generalized this to fit to the device view size so that it would be compatiable with mobile platforms.\n           At this point the performance differences between iPad and desktop browsers became more apparrant, the framerate for Safari on iPad made the tile drag\n           experience too slow. Although I didn't use any system tech for profiling or add any of my own profiling, I took a guess that this was due to the\n            <a href=\"http://stackoverflow.com/questions/5064132/html5-canvas-performs-too-slow-on-lower-end-computers\">canvas redrawing</a>.\n           Now that the canvas resized on device specs it was apparent that the landscape mode which used a smaller canvas was faster than portrait. My initial implementation \n           of the canvas render was to clear the full canvas on every update loop and redraw it, I switched this to a dirty rectangle refresh to improve performance.\n           The rectangular layout of the tiles made this straight forward. Initially I tried moving the render and refresh calls in to the IO event handler callbacks\n           as this seemed the most direct location for it. This almost worked but it tied the rendering to these callbacks which broke the model-view pattern. So I moved \n           render back in to a centralized update timer main loop and implemented the dirty rectangle refresh there. This made a hugh improvement to the framerate on mobile.</p>\n        \n           <h1>screen state control</h1>\n           <p> I went through several iterations with the front-end and screen state implementation. Initially I implemented the screen state as seperate html files\n           but I wasn't happy with how this interacted with browser navigation. I wanted to have programtic control of the screen state so \n           I switched to use of a single html page and dynamically set the html to switch screen states. This worked as required but it didn't seem right to be writing \n           html directly with javascript. The quantum leap was to then switch to using the <a href=\"http://angularjs.org/\">http://angularjs.org/</a>\n           framework, one of the components this provides is <a href=\"http://stackoverflow.com/questions/14336450/javascript-spa-frameworks-single-page-application\">Single-Page Application</a> \n           archictecture through the use of java-script <a href=\"http://docs.angularjs.org/guide/dev_guide.mvc.understanding_controller\">controllers</a>. I integrated\n           Angular and switched my existing screen state implmentation over to controllers. The mainloop game object could then be wrapped and scoped\n           by a controller. Use of Angular made the programming much more like a familar event driven experience that I am familar with in\n           <a href=\"http://en.wikipedia.org/wiki/Windows_Presentation_Foundation\">WPF</a> for example. It abstacts away the DOM manipulation from javascript which JQuery tends to promote. I created HTML templates for each of the \n           screens which mapped to the corresponding angular controllers.</p> \n           \n           <h1>canvas</h1>\n           <p> One more revelation was the ability to overlay DOM objects on to the game canvas as seperate render layers. Initially I had implemented text\n           rendering using the canvas API. This does allow for fine grained control but complicates the dirty rectangle implementation. So I switched\n           text and button controls to be DOM objects which overlayed the canvas. These could be created and layed out using the angular\n           screen templates. By using binding of the style attribute to js these DOM ojects could be dynamically positioned and scaled in javascript\n           when the view changes.</p> \n           \n           \n           <h1>score table</h1>\n           <p>Mainly as an opportunity to add a server side component to the app, I created a score table page showing the moves taken to solve the puzzle.\n           To make the scores visible to all players, this would require some client to server communication and a server side score table implementation \n           along with a means of storing the scores. </p>\n           \n           <h1>server-side architecture</h1>\n           <p>I used nodejs to create a web server app on the same EC2 instance as the NGINX server. Angular provides a HTTP API for making \n           REST calls which I used to POST scores with. A webserver instance can be created in nodejs with just a few line of code but to create a REST\n           server I added the <a href=\"http://expressjs.com/\">expressjs</a> framework to set up an listen for POST events. So both the client and\n           server are javascript implemented and JSON objects are passed between them.</p>\n           \n           <p>Initially I created some sample static score objects instance in the nodejs server app so that the client to use GET calls\n               to populate the score table. At this point I had my first encounter with <a href=\"http://en.wikipedia.org/wiki/Cross-origin_resource_sharing\">CORS</a>, I \n               needed to set up some configuration within the angular client implementation to tell it to allow cross domain exchanges. This\n               allows it to GET resource from another domain than that which it is hosted on. Although the nodejs server is running under the\n               same domain instance as the NGINX server, it is listening on a different port and with regard to browsers this counts as cross domain.\n               Next I implemented POST events to send new scores to the server. For this, the expressjs server needed to be configured seperatly\n               to accept cross-domain events. The nodejs server could have been configured to listen on the same port as the NGINX server but \n               that would have necessitated giving it root access.</p>  \n              \n            <h1>mongodb</h1> \n            <p>With the nodejs server setup to run as a <a href=\"http://en.wikipedia.org/wiki/Nohup\">NOHUP</a> background task there is now a persistant\n               score table. The next step was to write this state to a database so that it would persist over a system interruption. <a href=\"http://www.mongodb.org/\">mongodb</a> is\n               a NOSQL database which stores objects in JSON format. AWS provides seperate EC2 instances with mongodb imaged servers but these are no longer\n               covered by the free tier but you can still manually install to an AMI EC2 instance. It is then just a case of adding the <a href=\"https://github.com/gett/mongojs\">mongojs</a>\n               framework so that the nodjs server can connect to the mongod instance. For the mongod instance to run in the background \n               you can --fork it. \n               \n           <h1>The MEAN stack</h1>\n           <p>The suite of technologies used for this app is described as the javascript <a href=\"http://blog.mongodb.org/post/49262866911/the-mean-stack-mongodb-expressjs-angularjs-and\">MEAN stack</a> Mongo, ExpressJS, AngularJS and NodeJS.\n               </p>\n               \n           \n           <!--\n           NodeJS + Express.\n           Run the express app from the console and end command with & to signify hat it should run in tha backgound. The task id\n           can be located using 'ps -A | grep Node'\n           Start with storing JSON data within the NodeJS app before moving it in to a database. This allows for the client-server\n           communication to be implmentented with no database dependancy. In Angular the http REST API provides the GET,PUT to transfer \n           the JSON score table data. Starting with the GET it was necessary to configure the client for CORS(cross-origin resource sharing)\n           so that the XHR would succeed.\n           \n           python -m SimpleHTTPServer 8000\n           \n           ipconfig getifaddr en0\n           curl ipecho.net/plain; echo\n           \n           $ history\n           \n           npm install mongojs\n  \n           \n           mongodb/bin/mongo\n           \n           nginx/html/mongodb/bin/mongod --fork --logpath /var/log/mongodb.log\n           mongodb/bin/mongod --fork --logpath /data/db/mongodb.log\n           \n           /whiffenspoof\n           mongodb/bin/mongod --fork --logpath /data/db/mongodb.log\n\n            /whiffenspoof\n           node scoretableApp.js& will terminate when you logout of a session.\n           \n            nohup node scoretableApp.js >/dev/null 2>&1 &\n\n            sudo nano /etc/nginx/nginx.conf\n            sudo service nginx restart\n            \n            http://howtonode.org/node-js-and-mongodb-getting-started-with-mongojs\n            http://blog.ijasoneverett.com/2013/03/a-sample-app-with-node-js-express-and-mongodb-part-1/\n            http://ec2-54-213-75-45.us-west-2.compute.amazonaws.com/whiffenspoof/redshift.html#/scores\n            -->\n            \n\n\n             \n        </p>\n\n    </body>\n</html>\n",
+			"file": "doc/devjournal.html",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 16568,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 523,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Gruntfile.js",
+			"settings":
+			{
+				"buffer_size": 677,
+				"line_ending": "Unix",
+				"name": "module.exports = function(grunt) {"
+			}
+		},
+		{
+			"contents": "// Call the console.log function.\nconsole.log(\"Hello World\");",
+			"file": "src/index.js",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 61,
+				"line_ending": "Unix",
+				"name": "// Call the console.log function."
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/colinmoore/Dev/ASWorkspace/whiffenspoof/publishToEC2.sh",
+		"/Users/colinmoore/Dev/NodeJS/campylobacter/build/campylobacter.min.js",
+		"/Users/colinmoore/Downloads/untitled folder/publishToEC2.sh",
+		"/Users/colinmoore/Downloads/Faimily5 (1).wcp",
+		"/Users/colinmoore/Dev/NodeJS/expressTut/index.html",
+		"/Users/colinmoore/Dev/NodeJS/expressTut/expressTut",
+		"/Users/colinmoore/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/colinmoore/Dev/NodeJS/HelloWorld/helloworld.js",
+		"/Users/colinmoore/Dev/NodeJS/HelloWorld/helloHTTP.js",
+		"/Users/colinmoore/Dev/NodeJS/HelloWorld/helloTCP.js",
+		"/Users/colinmoore/index.html",
+		"/Users/colinmoore/Dev/ASWorkspace/whiffenspoof/src/template/menu.html",
+		"/Users/colinmoore/Dev/ASWorkspace/whiffenspoof/src/template/about.html",
+		"/Users/colinmoore/Dev/ASWorkspace/whiffenspoof/src/template/difficultyMenu.html",
+		"/Users/colinmoore/Dev/ASWorkspace/whiffenspoof/src/template/instructionsMenu.html",
+		"/Users/colinmoore/Dev/ASWorkspace/redshift/redshift/whiffenspoof/src/js/tile.js",
+		"/Users/colinmoore/Dev/ASWorkspace/redshift/redshift/whiffenspoof/src/template/game.html",
+		"/Users/colinmoore/Dev/ASWorkspace/redshift/redshift/whiffenspoof/src/js/mainloop.js",
+		"/Users/colinmoore/Dev/ASWorkspace/redshift/redshift/whiffenspoof/redshift.html",
+		"/Users/colinmoore/Dev/ASWorkspace/redshift/redshift/whiffenspoof/src/template/menu.html",
+		"/Users/colinmoore/Dev/ASWorkspace/redshift/redshift/whiffenspoof/src/css/menu.css",
+		"/Users/colinmoore/Dev/ASWorkspace/redshift/redshift/whiffenspoof/src/js/menuUtils.js",
+		"/Users/colinmoore/Dev/ASWorkspace/redshift/redshift/whiffenspoof/publishToEC2.sh",
+		"/Users/colinmoore/Dev/ASWorkspace/redshift/redshift/whiffenspoof/src/js/controllers.js",
+		"/Users/colinmoore/Dev/ASWorkspace/redshift/redshift/whiffenspoof/src/js/main.js",
+		"/Users/colinmoore/Dev/ASWorkspace/redshift/redshift/whiffenspoof/doc/devjournal.html"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"move",
+			"newgame",
+			"align",
+			"polygonpo",
+			"polgonpoly",
+			"wasTileSelectedOnLastUpdate",
+			"enuButtonStyle",
+			"menuButtonStyle",
+			"initMenuScreen"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Applications/Sublime Text.app/Contents/MacOS/changelog.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5442,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "doc/devjournal.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16568,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 87.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 523,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								105,
+								105
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Gruntfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 677,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								670,
+								670
+							]
+						],
+						"settings":
+						{
+							"auto_name": "module.exports = function(grunt) {",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 61,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								61,
+								61
+							]
+						],
+						"settings":
+						{
+							"auto_name": "// Call the console.log function.",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "campylobacter.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 183.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

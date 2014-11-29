@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!-- saved from url=(0116)https://www.evernote.com/shard/s19/sh/5536d715-ae99-487c-8a1e-164409a996f4/3e0adc133fdcb94162bd6a85d6bfd136?content= -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="https://www.evernote.com/redesign/global/css/fonts.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="nofollow">
+
+  <link rel="stylesheet" href="https://www.evernote.com/redesign/global/css/noteView.css">
+  <title>Note content</title>
+</head>
+<body id="note-frame-body">
+  <div class="note-content"><div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;" class="ennote">
+<div><a href="http://gruntjs.com/getting-started">http://gruntjs.com/getting-started</a><span style="color: rgb(221, 17, 68); font-family: Monaco, Consolas, &#39;Lucida Console&#39;, monospace; font-size: 13px; line-height: 25.6000003814697px; white-space: nowrap; background-color: rgb(247, 247, 249);"><br></span></div>
+<div><br></div>
+<div><font face="Menlo"><span style="font-size: 11px;">Update&nbsp;npm</span></font></div>
+<div><span style="font-family: Menlo; font-size: 11px;">$</span><b style="font-family: Menlo; font-size: 11px;">&nbsp;npm update -g npm</b></div>
+<div><b style="font-family: Menlo; font-size: 11px;"><br></b></div>
+<div><span style="font-family: Menlo; font-size: 11px;">Ensure node module folder has write permission</span></div>
+<div><span style="font-family: Menlo; font-size: 11px;"><b>$sudo chown -R `whoami` /usr/local/lib/node_modules</b></span><span style="color: rgb(221, 17, 68); font-family: Monaco, Consolas, &#39;Lucida Console&#39;, monospace; font-size: 13px; line-height: 25.6000003814697px; white-space: nowrap; background-color: rgb(247, 247, 249);"><br></span></div>
+<div><br></div>
+<div><span style="font-size: 11px; font-family: Menlo;">Install grunt globally</span></div>
+<div><span style="font-family: Menlo; font-size: 11px;">$</span><b style="font-family: Menlo; font-size: 11px;">&nbsp;npm install -g grunt-cli</b><span style="font-size: 11px; font-family: Menlo;"><br></span></div>
+<div><span style="font-size: 11px; font-family: Menlo;">/usr/local/bin/grunt -&gt; /usr/local/lib/node_modules/grunt-cli/bin/grunt<br>
+grunt-cli@0.1.13 /usr/local/lib/node_modules/grunt-cli<br>
+├── resolve@0.3.1<br>
+├── nopt@1.0.10 (abbrev@1.0.5)<br>
+└── findup-sync@0.1.3 (lodash@2.4.1, glob@3.2.11)</span><span style="color: rgb(248, 248, 248); font-family: Monaco, Consolas, &#39;Lucida Console&#39;, monospace; font-size: 14px; line-height: 20px; white-space: pre-wrap; background-color: rgb(24, 24, 24);"><br></span></div>
+<div><br></div>
+<div><font face="Menlo"><span style="font-size: 11px;">$&nbsp;<b>npm init</b></span></font></div>
+<div><span style="font-size: 11px; font-family: Menlo;">This utility will walk you through creating a package.json file.<br>
+It only covers the most common items, and tries to guess sane defaults.<br>
+<br>
+See `npm help json` for definitive documentation on these fields<br>
+and exactly what they do.<br>
+<br>
+Use `npm install &lt;pkg&gt; --save` afterwards to install a package and<br>
+save it as a dependency in the package.json file.<br>
+<br>
+Press ^C at any time to quit.<br>
+name: (campylobacter)<br>
+version: (1.0.0)<br>
+description: nasty bug<br>
+entry point: (index.js)<br>
+test command:<br>
+git repository: campylobacter<br>
+keywords: hygienic macros<br>
+author: colin moore<br>
+license: (ISC)<br>
+About to write to /Users/colinmoore/Dev/NodeJS/campylobacter/package.json:<br>
+<br>
+{<br>
+&nbsp; "name": "campylobacter",<br>
+&nbsp; "version": "1.0.0",<br>
+&nbsp; "description": "nasty bug",<br>
+&nbsp; "main": "index.js",<br>
+&nbsp; "scripts": {<br>
+&nbsp;&nbsp;&nbsp; "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"<br>
+&nbsp; },<br>
+&nbsp; "repository": {<br>
+&nbsp;&nbsp;&nbsp; "type": "git",<br>
+&nbsp;&nbsp;&nbsp; "url": "campylobacter"<br>
+&nbsp; },<br>
+&nbsp; "keywords": [<br>
+&nbsp;&nbsp;&nbsp; "hygienic",<br>
+&nbsp;&nbsp;&nbsp; "macros"<br>
+&nbsp; ],<br>
+&nbsp; "author": "colin moore",<br>
+&nbsp; "license": "ISC"<br>
+}</span><font face="Menlo"><span style="font-size: 11px;"><br></span></font></div>
+<div><font face="Menlo"><span style="font-size: 11px;"><br></span></font></div>
+<div><font face="Menlo"><span style="font-size: 11px;">This create custom package.json file.&nbsp;</span></font></div>
+<div><font face="Menlo"><span style="font-size: 11px;"><br></span></font></div>
+<div><span style="color: rgb(111, 90, 64); font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 25.6000003814697px; background-color: rgb(255, 255, 255);">install the latest version of Grunt in your project folder, adding it to your devDependencies:</span><font face="Menlo"><span style="font-size: 11px;"><br></span></font></div>
+<div><br></div>
+<div><span style="font-family: Menlo; font-size: 11px;">$</span><b style="font-family: Menlo; font-size: 11px;">&nbsp;npm install grunt --save-dev</b><br></div>
+<div><span style="font-size: 11px; font-family: Menlo; color: rgb(191, 191, 191); background-color: rgb(0, 0, 0);">npm</span> <span style="font-size: 11px; font-family: Menlo; background-color: rgb(153, 153, 0);">WARN</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(213, 59, 211);">package.json</span> <span style="font-size: 11px; font-family: Menlo;">campylobacter@1.0.0 No README data</span></div>
+<span style="font-size: 11px; font-family: Menlo;">grunt@0.4.5 node_modules/grunt<br>
+├── which@1.0.7<br>
+├── dateformat@1.0.2-1.2.3<br>
+├── eventemitter2@0.4.14<br>
+├── getobject@0.1.0<br>
+├── rimraf@2.2.8<br>
+├── colors@0.6.2<br>
+├── hooker@0.2.3<br>
+├── async@0.1.22<br>
+├── grunt-legacy-util@0.2.0<br>
+├── exit@0.1.2<br>
+├── nopt@1.0.10 (abbrev@1.0.5)<br>
+├── minimatch@0.2.14 (sigmund@1.0.0, lru-cache@2.5.0)<br>
+├── lodash@0.9.2<br>
+├── glob@3.1.21 (inherits@1.0.0, graceful-fs@1.2.3)<br>
+├── coffee-script@1.3.3<br>
+├── underscore.string@2.2.1<br>
+├── iconv-lite@0.2.11<br>
+├── findup-sync@0.1.3 (glob@3.2.11, lodash@2.4.1)<br>
+├── grunt-legacy-log@0.1.1 (underscore.string@2.3.3, lodash@2.4.1)<br>
+└── js-yaml@2.0.5 (esprima@1.0.4, argparse@0.1.15)</span>
+<div><font face="Menlo"><span style="font-size: 11px;"><br></span></font></div>
+<div><font face="Menlo"><span style="font-size: 11px;"><br></span></font></div>
+<div><span style="font-size: 11px; font-family: Menlo;">$ <b>npm install grunt-contrib-jshint --save-dev</b><br></span><span style="font-size: 11px; font-family: Menlo; color: rgb(191, 191, 191); background-color: rgb(0, 0, 0);">npm</span> <span style="font-size: 11px; font-family: Menlo; background-color: rgb(153, 153, 0);">WARN</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(213, 59, 211);">package.json</span> <span style="font-size: 11px; font-family: Menlo;">campylobacter@0.1.0 No README data<br>
+grunt-contrib-jshint@0.10.0 node_modules/grunt-contrib-jshint<br>
+├── hooker@0.2.3<br>
+└── jshint@2.5.10 (strip-json-comments@1.0.2, underscore@1.6.0, exit@0.1.2, shelljs@0.3.0, minimatch@1.0.0, console-browserify@1.1.0, cli@0.6.5, htmlparser2@3.8.2)<br>
+$ <b>npm install grunt-contrib-nodeunit --save-dev</b><br></span><span style="font-size: 11px; font-family: Menlo; color: rgb(191, 191, 191); background-color: rgb(0, 0, 0);">npm</span> <span style="font-size: 11px; font-family: Menlo; background-color: rgb(153, 153, 0);">WARN</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(213, 59, 211);">package.json</span> <span style="font-size: 11px; font-family: Menlo;">campylobacter@0.1.0 No README data<br>
+grunt-contrib-nodeunit@0.4.1 node_modules/grunt-contrib-nodeunit<br>
+├── hooker@0.2.3<br>
+└── nodeunit@0.9.0 (tap@0.4.13)<br>
+$ <b>npm install grunt-contrib-uglify --save-dev</b><br></span><span style="font-size: 11px; font-family: Menlo; color: rgb(191, 191, 191); background-color: rgb(0, 0, 0);">npm</span> <span style="font-size: 11px; font-family: Menlo; background-color: rgb(153, 153, 0);">WARN</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(213, 59, 211);">package.json</span> <span style="font-size: 11px; font-family: Menlo;">campylobacter@0.1.0 No README data<br>
+grunt-contrib-uglify@0.6.0 node_modules/grunt-contrib-uglify<br>
+├── uri-path@0.0.2<br>
+├── lodash@2.4.1<br>
+├── chalk@0.5.1 (escape-string-regexp@1.0.2, ansi-styles@1.1.0, supports-color@0.2.0, has-ansi@0.1.0, strip-ansi@0.3.0)<br>
+├── uglify-js@2.4.15 (uglify-to-browserify@1.0.2, async@0.2.10, source-map@0.1.34, optimist@0.3.7)<br>
+└── maxmin@1.0.0 (figures@1.3.5, pretty-bytes@1.0.1, gzip-size@1.0.0)</span></div>
+<div>
+<div><span style="font-size: 11px; font-family: Menlo;"><br></span></div>
+<div><span style="font-size: 11px; font-family: Menlo;">$ <b>grunt -v</b><br>
+<u>Initializing</u><br>
+Command-line options:</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">--verbose</span><span style="font-size: 11px; font-family: Menlo;"><br>
+<br>
+Reading "Gruntfile.js" Gruntfile...</span><span style="font-size: 11px; font-family: Menlo; color: rgb(52, 189, 38);">OK</span><span style="font-size: 11px; font-family: Menlo;"><br>
+<br>
+<b>Registering Gruntfile tasks.</b><br>
+Reading package.json...</span><span style="font-size: 11px; font-family: Menlo; color: rgb(52, 189, 38);">OK</span><span style="font-size: 11px; font-family: Menlo;"><br>
+Parsing package.json...</span><span style="font-size: 11px; font-family: Menlo; color: rgb(52, 189, 38);">OK</span><span style="font-size: 11px; font-family: Menlo;"><br>
+Initializing config...</span><span style="font-size: 11px; font-family: Menlo; color: rgb(52, 189, 38);">OK</span><span style="font-size: 11px; font-family: Menlo;"><br>
+<br>
+<b>Registering "grunt-contrib-uglify" local Npm module tasks.</b><br>
+Reading /Users/colinmoore/Dev/NodeJS/campylobacter/node_modules/grunt-contrib-uglify/package.json...</span><span style="font-size: 11px; font-family: Menlo; color: rgb(52, 189, 38);">OK</span><span style="font-size: 11px; font-family: Menlo;"><br>
+Parsing /Users/colinmoore/Dev/NodeJS/campylobacter/node_modules/grunt-contrib-uglify/package.json...</span><span style="font-size: 11px; font-family: Menlo; color: rgb(52, 189, 38);">OK</span><span style="font-size: 11px; font-family: Menlo;"><br>
+Loading "uglify.js" tasks...</span><span style="font-size: 11px; font-family: Menlo; color: rgb(52, 189, 38);">OK</span><span style="font-size: 11px; font-family: Menlo;"><br>
++</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">uglify</span><span style="font-size: 11px; font-family: Menlo;"><br>
+Loading "Gruntfile.js" tasks...</span><span style="font-size: 11px; font-family: Menlo; color: rgb(52, 189, 38);">OK</span><span style="font-size: 11px; font-family: Menlo;"><br>
++</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">default</span><span style="font-size: 11px; font-family: Menlo;"><br>
+<br>
+No tasks specified, running default tasks.<br>
+Running tasks:</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">default</span><span style="font-size: 11px; font-family: Menlo;"><br>
+<br>
+<u>Running "default" task</u><br>
+<br>
+<u>Running "uglify" task</u><br>
+<br>
+<u>Running "uglify:build" (uglify) task</u><br>
+Verifying property</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">uglify.build</span> <span style="font-size: 11px; font-family: Menlo;">exists in config...</span><span style="font-size: 11px; font-family: Menlo; color: rgb(52, 189, 38);">OK</span><span style="font-size: 11px; font-family: Menlo;"><br>
+Files:</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">src/campylobacter.js</span> <span style="font-size: 11px; font-family: Menlo;">-&gt;</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">build/campylobacter.min.js</span><span style="font-size: 11px; font-family: Menlo;"><br>
+Options:</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">banner="/*! campylobacter 2014-11-28 */\n"</span><span style="font-size: 11px; font-family: Menlo;">,</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">footer=""</span><span style="font-size: 11px; font-family: Menlo;">,</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">compress={"warnings":false}</span><span style="font-size: 11px; font-family: Menlo;">,</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">mangle={}</span><span style="font-size: 11px; font-family: Menlo;">,</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">beautify=false</span><span style="font-size: 11px; font-family: Menlo;">,</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">report="min"</span><span style="font-size: 11px; font-family: Menlo;">,</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">expression=false</span><span style="font-size: 11px; font-family: Menlo;">,</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">maxLineLen=32000</span><span style="font-size: 11px; font-family: Menlo;">,</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">ASCIIOnly=false</span><span style="font-size: 11px; font-family: Menlo;"><br>
+Minifying with UglifyJS...Reading src/campylobacter.js...</span><span style="font-size: 11px; font-family: Menlo; color: rgb(52, 189, 38);">OK</span><span style="font-size: 11px; font-family: Menlo;"><br></span><span style="font-size: 11px; font-family: Menlo; color: rgb(52, 189, 38);">OK</span><span style="font-size: 11px; font-family: Menlo;"><br>
+Writing build/campylobacter.min.js...</span><span style="font-size: 11px; font-family: Menlo; color: rgb(52, 189, 38);">OK</span><span style="font-size: 11px; font-family: Menlo;"><br>
+File</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 187, 199);">build/campylobacter.min.js</span> <span style="font-size: 11px; font-family: Menlo;">created:</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 189, 38);">61 B</span> <span style="font-size: 11px; font-family: Menlo;">→</span> <span style="font-size: 11px; font-family: Menlo; color: rgb(52, 189, 38);">59 B</span><span style="font-size: 11px; font-family: Menlo;"><br></span><span style="font-size: 11px; font-family: Menlo; color: rgb(52, 189, 38);">&gt;&gt;</span> <span style="font-size: 11px; font-family: Menlo;">1 file created.<br></span></div>
+<div><span style="font-family: Menlo; font-size: 11px;"><br></span></div>
+<div><span style="font-family: Menlo; font-size: 11px;"><br></span></div>
+<div><span style="font-family: Menlo; font-size: 11px;"><br></span></div>
+<div><span style="font-size: 11px; font-family: Menlo;"><br></span></div>
+<div><span style="font-size: 11px; font-family: Menlo;"><br></span></div>
+</div>
+</div></div>
+
+
+</body></html>
