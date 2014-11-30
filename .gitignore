@@ -1,3 +1,13 @@
-node_modules/
+node_modules/elasticsearch/
+node_modules/grunt/
+node_modules/grunt-contrib-jshint/
+node_modules/grunt-contrib-nodeunit/
+node_modules/grunt-contrib-uglify/
+node_modules/request/
+elasticsearch-1.4.1/bin/
+elasticsearch-1.4.1/data/
+elasticsearch-1.4.1/lib/
+elasticsearch-1.4.1/logs/
+elasticsearch-1.4.1/
 npm-debug.log
 build/
